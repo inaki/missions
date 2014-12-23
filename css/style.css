@@ -4,6 +4,8 @@ body {
     color: #909196;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 
 .navbar {
@@ -20,6 +22,26 @@ body {
     padding: 8px 15px;
     font-size: 18px;
     line-height: 32px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #444444;
+}
+
+.footer p {
+  color: white;
 }
 
 
