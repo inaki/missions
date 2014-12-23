@@ -6,10 +6,20 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-#grid a { opacity: 1; }
+#grid {
+  width: 100%;
+  text-align: center
+}
+
+#grid a {
+  opacity: 1;
+  display: inline-block;
+  padding: 1em;
+  margin: 1em;
+}
 #grid a:hover { position: relative; top: -1px; }
 #grid a:active { position: relative; top: 1px; }
-#grid img { width: 181px; height: 209px; }
+#grid img { width: 181px; height: 209px; padding: 5px; }
 
 .navbar {
   background-color: #CF1B41;
