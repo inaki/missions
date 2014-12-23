@@ -1,17 +1,26 @@
-<!DOCTYPE html>
+<!doctype html5>
 <html ng-app="missionsApp">
-<head>
+  <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Missions</title>
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="css/style.css" rel="stylesheet">
+
 </head>
+
 <body ng-controller="MainController">
 
+<!-- navbar code -->
+<div class="container">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <div class="container-fluid">
+  <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -19,134 +28,51 @@
         </button>
         <a class="navbar-brand" href="#">Missions</a>
       </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#missions">Missions</a></li>
-          <li><a href="#brigades">Brigades</a></li>
-          <li><a href="#contact">Contact</a></li>
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" class="selected">Missions</a></li>
+          <li><a href="/brigades.html">Brigades</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
-      </div><!--/.nav-collapse -->
+      </div>
     </div>
   </nav>
+</div>
+<!-- end of navbar code -->
 
-  <div>
-    <div style="margin-top: 45px; margin-bottom: 20px;">
-      <carousel interval="myInterval">
-        <slide ng-repeat="slide in slides" active="slide.active">
-          <img ng-src="{{slide.image}}" style="margin:auto;">
-          <div class="carousel-caption">
-            <h4>Slide {{ slide.title }}</h4>
-            <p>{{slide.text}}</p>
-          </div>
-        </slide>
-      </carousel>
+
+<!-- carousel - using ui.bootstrap dependency  -->
+<div>
+  <div style="margin-top: 45px; margin-bottom: 20px;">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>{{ slide.title }}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div>
+<!-- end of the carousel -->
+
+
+<div class="container main-content">
+
+  <div class="row">
+    <div id="grid" style="position: relative; margin-bottom: 20px;">
+      <a href="#" ng-repeat="mission in missions"><img src="hexagons/{{mission.image}}.png" ng-class="hex"></a>
     </div>
   </div>
 
-
-  <div class="container">
-
-    <ul id="categories" class="clr">
-      <li>
-        <div>
-          <img src="hexagons/codeforamerica.png" alt=""/>
-          <h1>This is a title a bit longer</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/codeforde.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/nodejs.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/oaklandjs.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/nodebots.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-
-      <li>
-        <div>
-          <img src="hexagons/jsgirls.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/nodeschool.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/express.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li><li>
-        <div>
-          <img src="hexagons/git-it.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/csvconf.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/koa.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/promise.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src="hexagons/binary.png" alt=""/>
-          <h1>This is a title</h1>
-          <p>Some sample text about the article this hexagon leads to</p>
-        </div>
-      </li>
+</div>
 
 
-    </ul>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+<script src="js/angular-ui-bootstrap.js"></script>
+<script src="js/hex.js"></script>
+<script src="js/app.js"></script>
 
-  </div>
-
-  <script src="js/angular.js"></script>
-  <script src="js/angular-ui-bootstrap.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+</body></html>
